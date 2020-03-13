@@ -5,12 +5,12 @@ import os, re
 import random,readJSON
 
 data = readJSON.读JSON文件("d.json")
-名人名言 = data["famous"] # a 代表前面垫话，b代表后面垫话
-前面垫话 = data["before"] # 在名人名言前面弄点废话
-后面垫话 = data['after']  # 在名人名言后面弄点废话
-废话 = data['bosh'] # 代表文章主要废话来源
+名人名言 = data["famous"] # 主要取自老胡经典的话
+前面垫话 = data["before"] # 在老胡名言前面弄点话
+后面垫话 = data['after']  # 在老胡名言后面弄点话
+废话 = data['bosh'] # 老胡文章主要废话
 
-xx = "学生会退会"
+xx = "老胡"
 
 重复度 = 2
 
@@ -33,9 +33,9 @@ def 来点名人名言():
     return xx
 
 def 另起一段():
-    xx = "。 "
+    xx = "。"
     xx += "\r\n"
-    xx += "    "
+    xx += " "
     return xx
 
 if __name__ == "__main__":
@@ -44,11 +44,11 @@ if __name__ == "__main__":
         tmp = str()
         while ( len(tmp) < 100 ) :
             分支 = random.randint(0,50)
-            if 分支 < 15:
+            if 分支 < 10:
                 tmp += 另起一段()
             elif 分支 < 5 :
                 tmp += 来点名人名言()
             else:
                 tmp += next(下一句废话)
-        tmp = tmp.replace("x",xx)
+        tmp = tmp.replace("x",xx).replace("。。", "。").replace("，。", "。")
         print(tmp)
